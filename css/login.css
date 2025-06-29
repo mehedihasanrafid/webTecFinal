@@ -1,0 +1,155 @@
+/* student_ms/css/login.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #e0f7fa; /* Light blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.loginform {
+    width: min(450px, 95%);
+    padding: 40px;
+    background-color: #2c3e50; /* Dark blue-gray background */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.loginform:hover {
+    box-shadow: 0 0 100px 0px rgba(121, 97, 239, 0.7), 0 0 400px 10px rgba(121, 97, 239, 0.3);
+    /* animation: blink 1s infinite; /* Removed for less distraction */
+}
+
+@keyframes blink {
+    0%, 100% {
+        box-shadow: 0 0 100px 0px rgba(121, 97, 239, 0.7), 0 0 400px 10px rgba(121, 97, 239, 0.3);
+    }
+    40%, 50%, 60% {
+        box-shadow: 0 0 50px 0px rgba(121, 97, 239, 0.5), 0 0 100px 0px rgba(121, 97, 239, 0.2);
+    }
+}
+
+.inputgroup {
+    position: relative;
+    height: 50px;
+    width: 85%;
+    margin-bottom: 30px; /* Added margin for spacing */
+}
+
+.inputgroup input {
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #7f8c8d; /* Light gray border */
+    color: white;
+    font-size: 18px;
+    padding: 0 5px;
+    outline: none;
+    transition: border-bottom 0.3s ease;
+}
+
+.inputgroup label {
+    position: absolute;
+    left: 5px;
+    top: 12px;
+    color: #bdc3c7; /* Light gray label */
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.inputgroup input:focus + label,
+.inputgroup input:valid + label {
+    top: -10px;
+    font-size: 12px;
+    color: #3498db; /* Blue for active/valid */
+}
+
+.inputgroup input:focus,
+.inputgroup input:valid {
+    border-bottom: 2px solid #3498db; /* Blue border for active/valid */
+}
+
+.topmarginlarge {
+    margin-top: 30px; /* Adjusted for better spacing */
+}
+
+.divcallforaction {
+    width: 85%;
+    height: 45px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px; /* Adjusted margin */
+}
+
+.btnlogin {
+    width: 150px;
+    height: 45px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.btnlogin:hover:not(:disabled) {
+    box-shadow: 0 0 20px rgba(52, 152, 219, 0.7); /* Blue shadow on hover */
+    transform: translateY(-3px);
+}
+
+.btnlogin:disabled {
+    background-color: #95a5a6; /* Gray for disabled */
+    cursor: not-allowed;
+}
+
+.inactivecolor {
+    background-color: #e74c3c; /* Red for inactive */
+}
+
+.activecolor {
+    background-color: #3498db; /* Blue for active */
+}
+
+.diverror {
+    background-color: transparent;
+    color: #e74c3c; /* Red for error messages */
+    height: 45px;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.applyerrordiv {
+    visibility: visible;
+    opacity: 1;
+    animation: falldown 0.8s ease-out;
+}
+
+@keyframes falldown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0px); }
+}
